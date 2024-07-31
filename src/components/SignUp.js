@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Import Link
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -54,9 +54,8 @@ function SignUp() {
   };
 
   return (
-
     <div className="form-container">
-    <h6>  Welcome to Our Community - Likithasri Nannaka </h6>
+      <h6>Welcome to Our Community - Likithasri Nannaka</h6>
       <h2>Sign Up</h2>
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
@@ -67,6 +66,12 @@ function SignUp() {
         {phoneError && <p className="error">{phoneError}</p>}
         <button type="submit">Sign Up</button>
       </form>
+      <div className="sign-in-link">
+        <p>Already have an account?</p>
+        <Link to="/login">
+          <button>Sign In</button>
+        </Link>
+      </div>
     </div>
   );
 }
